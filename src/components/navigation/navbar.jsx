@@ -1,15 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
-  return (
-    <nav className="flex justify-between items-center p-4 shadow">
-      <h1 className="font-bold text-primary">SBN Movers</h1>
+  const navLinkStyle = ({ isActive }) =>
+    isActive ? "text-primary font-semibold" : "text-gray-700";
 
-      <div className="space-x-4">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-      </div>
-    </nav>
+  return (
+    <header className="shadow-sm sticky top-0 bg-white z-40">
+      <nav className="max-w-6xl mx-auto flex justify-between items-center p-4">
+        
+        {/* Logo */}
+        <Link to="/" className="text-xl font-bold text-primary">
+          SBN Movers
+        </Link>
+
+        {/* Links */}
+        <div className="flex gap-6">
+          <NavLink to="/" className={navLinkStyle}>
+            Home
+          </NavLink>
+          <NavLink to="/about" className={navLinkStyle}>
+            About
+          </NavLink>
+          <NavLink to="/contact" className={navLinkStyle}>
+            Contact
+          </NavLink>
+        </div>
+      </nav>
+    </header>
   );
 }
