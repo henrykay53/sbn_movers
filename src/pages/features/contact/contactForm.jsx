@@ -1,29 +1,61 @@
 import { useForm } from "react-hook-form";
 
 export default function ContactForm() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log("Form Data:", data);
+
+    // Later: send to backend / email service
+    alert("Request submitted successfully!");
+    reset();
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="grid gap-4 max-w-md"
+      className="bg-white shadow-lg rounded-xl p-6 space-y-4"
     >
-      <input {...register("name")} placeholder="Name" className="border p-2" />
-      <input {...register("phone")} placeholder="Phone" className="border p-2" />
-      <input {...register("email")} placeholder="Email" className="border p-2" />
+      <h2 className="text-xl font-semibold mb-4">Request a Quote</h2>
+
+      <input
+        {...register("name", { required: true })}
+        placeholder="Full Name"
+        className="w-full border p-3 rounded"
+      />
+
+      <input
+        {...register("phone", { required: true })}
+        placeholder="Phone Number"
+        className="w-full border p-3 rounded"
+      />
+
+      <input
+        {...register("email")}
+        placeholder="Email Address"
+        className="w-full border p-3 rounded"
+      />
+
+      <input
+        {...register("from")}
+        placeholder="Moving From"
+        className="w-full border p-3 rounded"
+      />
+
+      <input
+        {...register("to")}
+        placeholder="Moving To"
+        className="w-full border p-3 rounded"
+      />
 
       <textarea
         {...register("message")}
-        placeholder="Message"
-        className="border p-2"
+        placeholder="Additional Details"
+        className="w-full border p-3 rounded"
       />
 
-      <button className="bg-primary text-white p-2 rounded">
-        Submit
+      <button className="w-full bg-primary text-white py-3 rounded hover:opacity-90 transition">
+        Submit Request
       </button>
     </form>
   );

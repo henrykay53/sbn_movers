@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative py-24 bg-gradient-to-br from-gray-50 to-gray-200 overflow-hidden">
+    <section className="relative py-24 bg-linear-to-br from-gray-50 to-gray-200 overflow-hidden">
       
       {/* Background Accent */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-primary opacity-10 rounded-full blur-3xl"></div>
@@ -38,14 +38,14 @@ export default function Hero() {
         >
           <Link
             to="/contact"
-            className="bg-primary text-white px-8 py-3 rounded-lg shadow hover:scale-105 transition"
+            className="bg-blue-800 text-white px-8 py-3 rounded-lg shadow hover:scale-105 transition"
           >
             Get a Quote
           </Link>
 
           <Link
             to="/about"
-            className="border border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition"
+            className="border border-black text-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-blue-800 transition"
           >
             Learn More
           </Link>
