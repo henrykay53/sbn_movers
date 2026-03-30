@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
+import {
+  Phone,
+  MapPin,
+  MessageCircle,
+//   Instagram,
+//   Facebook,
+} from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="bg-blue-900 text-white mt-20">
-      <div className="max-w-6xl mx-auto px-6 py-12 grid gap-10 md:grid-cols-3">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         
         {/* Brand */}
         <div>
@@ -14,13 +21,14 @@ export default function Footer() {
           </p>
 
           {/* Socials */}
-          <div className="flex gap-4 text-sm">
+          <div className="flex gap-4">
             <a
               href="https://instagram.com/sbn_movers"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-gray-200 transition"
+              className="flex items-center gap-2 text-gray-300 hover:text-white transition text-sm"
             >
+              {/* <Instagram size={18} /> */}
               Instagram
             </a>
 
@@ -28,8 +36,9 @@ export default function Footer() {
               href="https://facebook.com/sbn_movers"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-gray-200 transition"
+              className="flex items-center gap-2 text-gray-300 hover:text-white transition text-sm"
             >
+              {/* <Facebook size={18} /> */}
               Facebook
             </a>
           </div>
@@ -55,37 +64,41 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold mb-4">Contact</h3>
 
-          <div className="text-sm text-gray-300 space-y-3">
-            
+          <div className="text-sm text-gray-300 space-y-4">
+
             {/* Phone */}
-            <p>
-              📞{" "}
+            <div className="flex items-start gap-3">
+              <Phone size={18} className="mt-1 text-white" />
               <a
                 href="tel:08169216565"
                 className="hover:text-white transition"
               >
                 08169216565
               </a>
-            </p>
+            </div>
 
             {/* WhatsApp */}
-            <p>
-              💬{" "}
+            <div className="flex items-start gap-3">
+              <MessageCircle size={18} className="mt-1 text-green-400" />
               <a
-                href="https://wa.me/2348169216565"
+                href="https://wa.me/2348169216565?text=Hello%20I%20need%20a%20moving%20service"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-white underline"
+                className="hover:text-white transition underline"
               >
                 Chat on WhatsApp
               </a>
-            </p>
+            </div>
 
             {/* Address */}
-            <p>
-              📍 km 20 Lekki-Epe Expressway, beside Oral Estate,
-              Lekki, Lagos
-            </p>
+            <div className="flex items-start gap-3">
+              <MapPin size={18} className="mt-1 text-white" />
+              <p>
+                km 20 Lekki-Epe Expressway, beside Oral Estate,
+                Lekki, Lagos
+              </p>
+            </div>
+
           </div>
         </div>
       </div>

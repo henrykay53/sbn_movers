@@ -1,12 +1,17 @@
+import AboutHero from "./features/about/aboutHero";
+import ServicesList from "./features/about/serviceList";
+import CoreValues from "./features/about/coreValues";
+import Innovations from "./features/about/inovations";
+import WhyChooseUs from "./features/home/whyChooseUs";
+
 export default function About() {
   return (
-    <section className="p-10">
-      <h1 className="text-3xl font-bold mb-6">About Us</h1>
-
-      <p>
-        SBN Movers is a Lagos-based logistics company focused on seamless and
-        reliable relocation services.
-      </p>
-    </section>
+    <div className="space-y-20 py-16 sm:py-20">
+      <AboutHero />
+      <ServicesList />
+      <CoreValues />
+      <Innovations />
+      <WhyChooseUs />
+    </div>
   );
 }
