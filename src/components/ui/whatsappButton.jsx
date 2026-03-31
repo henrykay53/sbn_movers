@@ -10,8 +10,8 @@ export default function WhatsAppButton() {
       className="fixed bottom-6 right-6 z-50"
     >
       {/* Tooltip */}
-      <span className="hidden md:block absolute right-16 top-1/2 -translate-y-1/2 bg-black text-white text-xs px-3 py-1 rounded whitespace-nowrap shadow">
-        Chat with us
+      <span className="hidden md:block absolute right-16 top-1/2 -translate-y-1/2 bg-black font-bold text-white text-xs px-3 py-1 rounded whitespace-nowrap shadow">
+        Send us a hello!
       </span>
 
       {/* Button */}
@@ -24,7 +24,7 @@ export default function WhatsAppButton() {
         className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center"
         aria-label="Chat with SBN Movers on WhatsApp"
       >
-        <MessageCircle size={24} />
+        <MessageCircle size={18} />
       </motion.a>
     </motion.div>
   );
