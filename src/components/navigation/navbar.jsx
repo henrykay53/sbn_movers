@@ -24,7 +24,7 @@ export default function Navbar() {
         
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-primary">
-          SBN Movers
+          <img src="/public/images/logo.png" alt="" className="w-10" />
         </Link>
 
         {/* Desktop Nav */}

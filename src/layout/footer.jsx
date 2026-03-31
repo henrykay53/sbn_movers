@@ -9,12 +9,12 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-900 text-white mt-20">
+    <footer className="bg-primary text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         
         {/* Brand */}
         <div>
-          <h2 className="text-xl font-bold mb-4">SBN Movers</h2>
+          <img src="/images/logo.png" alt="" className="w-10 mb-3" />
           <p className="text-sm text-gray-300 mb-4">
             Reliable logistics and relocation services across Lagos.
             We move your world safely, efficiently, and stress-free.
@@ -79,14 +79,14 @@ export default function Footer() {
 
             {/* WhatsApp */}
             <div className="flex items-start gap-3">
-              <MessageCircle size={18} className="mt-1 text-green-400" />
+              <MessageCircle size={18} className="mt-1 text-white" />
               <a
                 href="https://wa.me/2348169216565?text=Hello%20I%20need%20a%20moving%20service"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-white transition underline"
+                className="hover:text-white"
               >
-                Chat on WhatsApp
+                Say Hello on WhatsApp
               </a>
             </div>
 

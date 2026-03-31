@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+
+/* === BRAND COLORS === */
+:root {
+  --color-primary: #800000;   /* maroon */
+  --color-secondary: #1e3a8a; /* deep blue */
+}
+
+/* === CUSTOM UTILITIES === */
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+
+
+/* === ANIMATION === */
+@keyframes slide {
+  0% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-slide {
+  animation: slide 10s linear infinite;
+}

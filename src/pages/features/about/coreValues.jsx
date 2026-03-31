@@ -7,7 +7,7 @@ const values = [
 
 export default function CoreValues() {
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-linear-to-br from-red-50 to-red-200 py-30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
         <h2 className="text-2xl font-semibold mb-8">
           Our Core Principles

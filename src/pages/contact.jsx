@@ -16,11 +16,13 @@ export default function Contact() {
           <ContactInfo />
         </div>
 
-        <div className="mt-16">
+       
+      </div>
+
+       <div className="mt-16">
           <Map />
         </div>
 
-      </div>
     </section>
   );
 }
