@@ -24,7 +24,7 @@ export default function Navbar() {
         
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-primary">
-          <img src="/public/images/logo.png" alt="" className="w-10" />
+          <img src="/images/logo.png" alt="" className="w-10" />
         </Link>
 
         {/* Desktop Nav */}
