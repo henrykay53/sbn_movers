@@ -16,7 +16,7 @@ export default function Footer() {
         <div>
           <img src="/images/logo.png" alt="" className="w-10 mb-3" />
           <p className="text-sm text-gray-300 mb-4">
-            Reliable logistics and relocation services across Lagos.
+            Reliable logistics and relocation services across Nigeria.
             We move your world safely, efficiently, and stress-free.
           </p>
 

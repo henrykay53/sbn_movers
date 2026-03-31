@@ -1,4 +1,4 @@
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 
 const testimonials = [
   {
@@ -20,55 +20,75 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+    <section className="relative overflow-hidden py-20 bg-secondary text-white">
+
+      {/* Background Layers */}
+      <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-secondary" />
+
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute w-[200%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-slide" />
+      </div>
+
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),transparent_70%)]" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
 
         {/* Heading */}
-        <h2 className="text-3xl font-bold mb-4">
-          What Our Clients Say
-        </h2>
-        <p className="text-gray-600 mb-12 text-sm sm:text-base">
-          Trusted by individuals and businesses across Lagos
-        </p>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+            What Our Clients Say
+          </h2>
+          <p className="text-gray-200 text-sm sm:text-base">
+            Trusted by individuals and businesses across Lagos
+          </p>
+        </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {/* Scroll Container (mobile scroll, desktop grid) */}
+        <div className="
+          flex gap-6 overflow-x-auto pb-4
+          md:grid md:grid-cols-3 md:overflow-visible
+        ">
 
           {testimonials.map((t, i) => (
             <div
               key={i}
               className="
-                bg-white 
-                p-6 
-                rounded-xl 
-                shadow 
-                hover:shadow-xl 
-                hover:-translate-y-1 
+                min-w-[280px] md:min-w-0
+                bg-white/10 backdrop-blur-md
+                border border-white/10
+                p-6 rounded-2xl
+                shadow-lg
                 transition-all duration-300
-                text-left
-                flex flex-col
-                justify-between
+                hover:scale-[1.02] hover:shadow-2xl
+                flex flex-col justify-between
               "
             >
-              {/* Quote Icon */}
-              <Quote className="text-primary mb-4" size={28} />
+              {/* Quote */}
+              <Quote className="text-white/70 mb-4" size={28} />
 
               {/* Text */}
-              <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+              <p className="text-gray-200 text-sm leading-relaxed mb-6">
                 “{t.text}”
               </p>
+
+              {/* Rating */}
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
 
               {/* User */}
               <div className="flex items-center gap-3 mt-auto">
                 
-                {/* Avatar */}
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-semibold">
+                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-semibold">
                   {t.name.charAt(0)}
                 </div>
 
                 <div>
                   <p className="font-semibold text-sm">{t.name}</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-300">
                     {t.location}
                   </p>
                 </div>
