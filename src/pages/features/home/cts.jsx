@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function CTA() {
@@ -32,7 +33,7 @@ export default function CTA() {
         <Link
           to="/contact"
           className="
-            inline-flex items-center gap-2
+            inline-flex items-center gap-1
             bg-white text-secondary 
             px-8 py-3 
             rounded-full 
@@ -43,7 +44,7 @@ export default function CTA() {
             active:scale-95
           "
         >
-          Contact Us Now →
+          Contact Us Now <ArrowRight size={18} className="mt-1" />
         </Link>
 
       </div>

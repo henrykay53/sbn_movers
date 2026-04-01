@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import AnimatedSection from "./animatedSection";
 
 const services = [
@@ -70,9 +71,9 @@ export default function Services() {
                   {/* CTA */}
                   <a
                     href="/contact"
-                    className="mt-4 inline-block text-primary text-sm font-medium hover:underline"
+                    className="mt-4 flex items-center gap-2 text-primary text-sm font-medium hover:text-red-800"
                   >
-                    Get started →
+                    Get started <ArrowRight size={14} className="mt-1"/>
                   </a>
                 </div>
 

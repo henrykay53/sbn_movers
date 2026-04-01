@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Truck, ShieldCheck, Globe } from "lucide-react";
+import { Truck, ShieldCheck, Globe, ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -61,7 +61,7 @@ export default function Hero() {
               active:scale-95
             "
           >
-            Get a Quote →
+            Get a Quote <ArrowRight />
           </Link>
 
           <Link
