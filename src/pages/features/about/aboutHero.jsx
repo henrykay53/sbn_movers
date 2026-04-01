@@ -34,12 +34,12 @@ export default function AboutHero() {
           transition={{ duration: 0.7 }}
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
         >
-          About{" "}
+          About
           <span className="inline-flex items-center">
             <span className="text-blue-500">S</span>
             <span className="text-red-700">B</span>
             <span className="text-blue-500">N</span>
-          </span>{" "}
+          </span>
           Movers
         </motion.h1>
 

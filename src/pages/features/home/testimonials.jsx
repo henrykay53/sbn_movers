@@ -13,10 +13,10 @@ export default function Clients() {
     <section className="relative overflow-hidden py-20 bg-secondary text-white">
 
       {/* Background Layers */}
-      <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-secondary" />
+      <div className="absolute inset-0 bg-linear-to-r from-secondary via-secondary/90 to-secondary" />
 
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute w-[200%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-slide" />
+        <div className="absolute w-[200%] h-full bg-linear-to-r from-transparent via-white/40 to-transparent animate-slide" />
       </div>
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),transparent_70%)]" />
@@ -26,7 +26,7 @@ export default function Clients() {
 
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl font-bold mb-3">
-          Trusted By Leading Brands
+          Our Clients
         </h2>
         <p className="text-gray-200 mb-12 text-sm sm:text-base">
           Businesses that rely on SBN Movers for seamless logistics
@@ -49,9 +49,9 @@ export default function Clients() {
               <div
                 key={index}
                 className="
-                  flex-shrink-0
-                  w-[120px] sm:w-[140px]
-                  h-[60px]
+                  shrink
+                  w-30 sm:w-35
+                  h-15
                   flex items-center justify-center
                   bg-white/10 backdrop-blur-md
                   border border-white/10

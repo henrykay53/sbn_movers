@@ -6,9 +6,19 @@ const services = [
     title: "Packaging",
     description:
       "Secure wrapping and protection of furniture and valuables to prevent damage during transit.",
-    image: "/images/packaging.jpeg",
+    image: "/images/loading.jpeg",
     alt: "men using film to cover furniture for transport",
   },
+
+   {
+    title: "Technology-Driven Planning",
+    description:
+      "Smart logistics powered by digital tools for planning, tracking, and operational efficiency.",
+    image: "/images/tech.jpeg",
+    alt: "a logistics personnel using a laptop",
+  },
+
+ 
   {
     title: "Haulage & Truck Rentals",
     description:
@@ -16,20 +26,16 @@ const services = [
     image: "/images/holageOne.jpeg",
     alt: "a truck used for haulage services",
   },
-  {
+
+   {
     title: "Logistics & Transportation",
     description:
       "Efficient and timely movement of goods with a focus on safety and reliability.",
     image: "/images/holageTwo.jpeg",
     alt: "a logistics truck transporting goods",
   },
-  {
-    title: "Technology-Driven Planning",
-    description:
-      "Smart logistics powered by digital tools for planning, tracking, and operational efficiency.",
-    image: "/images/tech.jpeg",
-    alt: "a logistics personnel using a laptop",
-  },
+  
+ 
 ];
 
 export default function Services() {
