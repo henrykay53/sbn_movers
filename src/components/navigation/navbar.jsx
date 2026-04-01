@@ -34,7 +34,7 @@ export default function Navbar() {
         ${scrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-2" : "bg-white py-3"}
       `}
     >
-      <nav className="max-w-6xl mx-auto flex justify-between items-center px-4">
+      <nav className="max-w-6xl mx-auto flex justify-between items-center px-6">
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
@@ -83,7 +83,7 @@ export default function Navbar() {
                 open: { rotate: 45, y: 6 },
               }}
               transition={spring}
-              className="absolute w-6 h-[2px] bg-black"
+              className="absolute w-6 h-0.5 bg-black"
             />
 
             <motion.span
@@ -92,7 +92,7 @@ export default function Navbar() {
                 open: { opacity: 0 },
               }}
               transition={{ duration: 0.2 }}
-              className="absolute w-6 h-[2px] bg-black top-2"
+              className="absolute w-6 h-0.5 bg-black top-2"
             />
 
             <motion.span
@@ -101,7 +101,7 @@ export default function Navbar() {
                 open: { rotate: -45, y: 6 },
               }}
               transition={spring}
-              className="absolute w-6 h-[2px] bg-black top-4"
+              className="absolute w-6 h-0.5 bg-black top-4"
             />
 
           </motion.div>
