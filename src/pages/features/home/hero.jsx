@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Truck, ShieldCheck, Globe } from "lucide-react";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden py-28 bg-secondary text-white">
-
       {/* Background Layers */}
       <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-secondary" />
 
@@ -18,12 +18,11 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
-
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.8 }}
           className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6"
         >
           <p className="inline text-red-800">Move</p> Smarter.
@@ -38,8 +37,8 @@ export default function Hero() {
           transition={{ delay: 0.2 }}
           className="text-gray-200 text-base sm:text-lg max-w-2xl mx-auto mb-10"
         >
-          Experience seamless relocation powered by smart logistics,
-          reliable execution, and a customer-first approach.
+          Experience seamless relocation powered by smart logistics, reliable
+          execution, and a customer-first approach.
         </motion.p>
 
         {/* CTA */}
@@ -82,16 +81,29 @@ export default function Hero() {
 
         {/* Trust Indicators */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
           className="mt-12 flex flex-wrap justify-center gap-6 text-sm text-gray-300"
         >
-          <span>✔ Fast Delivery</span>
-          <span>✔ Secure Handling</span>
-          <span>✔ Nationwide Coverage</span>
-        </motion.div>
+          {/* Fast Delivery */}
+          <div className="flex items-center gap-2">
+            <Truck size={18} className="text-white" />
+            <span>Fast Delivery</span>
+          </div>
 
+          {/* Secure Handling */}
+          <div className="flex items-center gap-2">
+            <ShieldCheck size={18} className="text-white" />
+            <span>Secure Handling</span>
+          </div>
+
+          {/* Nationwide Coverage */}
+          <div className="flex items-center gap-2">
+            <Globe size={18} className="text-white" />
+            <span>Nationwide Coverage</span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

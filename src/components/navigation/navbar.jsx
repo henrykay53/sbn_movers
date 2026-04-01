@@ -1,16 +1,25 @@
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const navLinkStyle = ({ isActive }) =>
-    isActive
-      ? "text-primary font-semibold"
-      : "text-gray-700 hover:text-primary transition";
+  const links = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/contact", label: "Contact" },
+  ];
 
-  const lineStyle = "w-6 h-0.5 bg-black block";
+  // Detect scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const spring = {
     type: "spring",
@@ -19,57 +28,87 @@ export default function Navbar() {
   };
 
   return (
-    <header className="shadow-sm sticky top-0 bg-white z-50">
-      <nav className="max-w-6xl mx-auto flex justify-between items-center p-4">
-        
+    <header
+      className={`
+        sticky top-0 z-50 transition-all duration-300
+        ${scrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-2" : "bg-white py-3"}
+      `}
+    >
+      <nav className="max-w-6xl mx-auto flex justify-between items-center px-4">
+
         {/* Logo */}
-        <Link to="/" className="text-xl font-bold text-primary">
-          <img src="/images/logo.png" alt="" className="w-10" />
+        <Link to="/" className="flex items-center gap-2">
+          <img src="/images/logo.png" alt="SBN Movers logo" className="w-10" />
+          <span className="font-bold text-lg text-primary hidden sm:block">
+            SBN Movers
+          </span>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex gap-6">
-          <NavLink to="/" className={navLinkStyle}>
-            Home
-          </NavLink>
-          <NavLink to="/about" className={navLinkStyle}>
-            About
-          </NavLink>
-          <NavLink to="/contact" className={navLinkStyle}>
-            Contact
-          </NavLink>
+        <div className="hidden md:flex items-center gap-3 bg-gray-100 p-1 rounded-full">
+
+          {links.map((link) => (
+            <NavLink key={link.path} to={link.path} className="relative px-4 py-2 text-sm font-medium">
+              {({ isActive }) => (
+                <>
+                  {/* Active pill */}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute inset-0 bg-white rounded-full shadow-sm"
+                      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                    />
+                  )}
+
+                  <span className={`relative z-10 ${isActive ? "text-primary" : "text-gray-600"}`}>
+                    {link.label}
+                  </span>
+                </>
+              )}
+            </NavLink>
+          ))}
+
         </div>
 
         {/* Hamburger */}
         <button
-          onClick={() => setOpen((prev) => !prev)}
-          className="md:hidden flex flex-col justify-center items-center gap-1.5 z-50"
-          aria-label="Toggle Menu"
+          onClick={() => setOpen(!open)}
+          className="md:hidden relative z-50 w-8 h-8 flex items-center justify-center"
         >
-          {/* Top Line */}
-          <motion.span
-            animate={open ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            transition={spring}
-            className={lineStyle}
-          />
+          <motion.div animate={open ? "open" : "closed"} className="relative w-6 h-6">
 
-          {/* Middle Line */}
-          <motion.span
-            animate={open ? { opacity: 0 } : { opacity: 1 }}
-            transition={{ duration: 0.2 }}
-            className={lineStyle}
-          />
+            <motion.span
+              variants={{
+                closed: { rotate: 0, y: 0 },
+                open: { rotate: 45, y: 6 },
+              }}
+              transition={spring}
+              className="absolute w-6 h-[2px] bg-black"
+            />
 
-          {/* Bottom Line */}
-          <motion.span
-            animate={open ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            transition={spring}
-            className={lineStyle}
-          />
+            <motion.span
+              variants={{
+                closed: { opacity: 1 },
+                open: { opacity: 0 },
+              }}
+              transition={{ duration: 0.2 }}
+              className="absolute w-6 h-[2px] bg-black top-2"
+            />
+
+            <motion.span
+              variants={{
+                closed: { rotate: 0, y: 0 },
+                open: { rotate: -45, y: 6 },
+              }}
+              transition={spring}
+              className="absolute w-6 h-[2px] bg-black top-4"
+            />
+
+          </motion.div>
         </button>
       </nav>
 
-      {/* Mobile Menu + Overlay */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {open && (
           <>
@@ -78,55 +117,68 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.4 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
               className="fixed inset-0 bg-black z-40"
               onClick={() => setOpen(false)}
             />
 
-            {/* Slide Menu */}
+            {/* Panel */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 260, damping: 25 }}
-              className="fixed top-0 right-0 w-3/4 max-w-sm h-screen bg-white z-50 p-6 flex flex-col gap-8 shadow-lg"
+              className="fixed top-0 right-0 w-3/4 max-w-sm h-screen bg-white z-50 p-8 flex flex-col"
             >
-              {/* Close Button (Explicit X for UX clarity) */}
+              {/* Close */}
               <button
                 onClick={() => setOpen(false)}
-                className="self-end text-2xl"
-                aria-label="Close Menu"
+                className="self-end text-2xl mb-10"
               >
                 ✕
               </button>
 
-              {/* Nav Links */}
-              <nav className="flex flex-col gap-6 text-lg">
-                {["/", "/about", "/contact"].map((path, i) => {
-                  const label =
-                    path === "/"
-                      ? "Home"
-                      : path.replace("/", "").charAt(0).toUpperCase() +
-                        path.slice(2);
-
-                  return (
-                    <motion.div
-                      key={path}
-                      initial={{ opacity: 0, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.1 }}
+              {/* Links */}
+              <div className="flex flex-col gap-6 text-lg font-medium">
+                {links.map((link, i) => (
+                  <motion.div
+                    key={link.path}
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                  >
+                    <NavLink
+                      to={link.path}
+                      onClick={() => setOpen(false)}
+                      className="hover:text-primary transition"
                     >
-                      <NavLink
-                        to={path}
-                        onClick={() => setOpen(false)}
-                        className={navLinkStyle}
-                      >
-                        {label}
-                      </NavLink>
-                    </motion.div>
-                  );
-                })}
-              </nav>
+                      {link.label}
+                    </NavLink>
+                  </motion.div>
+                ))}
+
+                {/* CTA */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <Link
+                    to="/contact"
+                    onClick={() => setOpen(false)}
+                    className="
+                      mt-6 block text-center
+                      bg-primary text-white
+                      py-3 rounded-full
+                      font-semibold
+                      shadow-md
+                      hover:scale-105
+                      transition
+                    "
+                  >
+                    Get a Quote
+                  </Link>
+                </motion.div>
+              </div>
             </motion.div>
           </>
         )}
