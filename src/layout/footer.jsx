@@ -3,6 +3,7 @@ import {
   Phone,
   MapPin,
   MessageCircle,
+  CircleArrowUp
 //   Instagram,
 //   Facebook,
 } from "lucide-react";
@@ -131,7 +132,7 @@ export default function Footer() {
             hover:text-white transition
           "
         >
-          Back to top ↑
+          Back To Top <CircleArrowUp/>
         </button>
 
       </div>

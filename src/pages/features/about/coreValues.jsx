@@ -25,7 +25,7 @@ const values = [
 
 export default function CoreValues() {
   return (
-    <section className="bg-gradient-to-br from-red-50 to-red-200 py-24">
+    <section className="bg-linear-to-br from-red-50 to-red-200 py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
 
         {/* Heading */}
@@ -39,7 +39,7 @@ export default function CoreValues() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
 
-          {values.map((value, index) => {
+          {values.map((value) => {
             const Icon = value.icon;
 
             return (

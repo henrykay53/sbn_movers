@@ -6,11 +6,11 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden py-28 bg-secondary text-white">
       {/* Background Layers */}
-      <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-secondary" />
+      <div className="absolute inset-0 bg-linear-to-r from-secondary via-secondary/90 to-secondary" />
 
       {/* Motion streaks (speed effect) */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute w-[200%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-slide" />
+        <div className="absolute w-[200%] h-full bg-linear-to-r from-transparent via-white/40 to-transparent animate-slide" />
       </div>
 
       {/* Glow */}
