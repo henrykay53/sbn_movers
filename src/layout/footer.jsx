@@ -5,7 +5,6 @@ import {
   MessageCircle,
 //   Instagram,
 //   Facebook,
-  ArrowUpRight,
 } from "lucide-react";
 
 export default function Footer() {
@@ -13,7 +12,7 @@ export default function Footer() {
     <footer className="bg-primary text-white relative overflow-hidden">
 
       {/* Subtle Top Glow */}
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-white/10 to-transparent pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
 
@@ -64,10 +63,7 @@ export default function Footer() {
                 className="flex items-center justify-between group hover:text-white transition"
               >
                 {link.name}
-                <ArrowUpRight
-                  size={14}
-                  className="opacity-0 group-hover:opacity-100 transition"
-                />
+               
               </Link>
             ))}
           </div>

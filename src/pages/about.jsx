@@ -1,5 +1,5 @@
 import AboutHero from "./features/about/aboutHero";
-import ServicesList from "./features/home/services";
+import ServicesList from "../components/shared/services";
 import CoreValues from "./features/about/coreValues";
 import Innovations from "./features/about/inovations";
 import WhyChooseUs from "./features/home/whyChooseUs";
