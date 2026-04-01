@@ -58,12 +58,12 @@ export default function Services() {
                 />
 
                 {/* Content */}
-                <div className="p-5 flex flex-col flex-grow">
+                <div className="p-5 flex flex-col grow">
                   <h3 className="font-semibold mb-2">
                     {service.title}
                   </h3>
 
-                  <p className="text-sm text-gray-600 flex-grow">
+                  <p className="text-sm text-gray-600 grow">
                     {service.description}
                   </p>
 
