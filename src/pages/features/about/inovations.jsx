@@ -3,22 +3,22 @@ export default function Innovations() {
     {
       title: "Smart Logistics & Planning",
       text: "We leverage modern digital tools to plan, track, and optimize every move. From route efficiency to real-time coordination, our system ensures faster deliveries and reduced delays.",
-      image: "/images/tech.jpeg",
+      image: "/images/whiteBus.jpeg",
     },
     {
       title: "Intelligent Packaging System",
       text: "Our team uses advanced protective materials and proven techniques to safeguard your belongings from damage, dust, and environmental factors during transit.",
-      image: "/images/packaging.jpeg",
+      image: "/images/packingTwo.jpeg",
     },
     {
       title: "Optimized Fleet Operations",
       text: "Our fleet is strategically managed to match the right vehicle with every job, ensuring efficiency, cost-effectiveness, and timely delivery across all locations.",
-      image: "/images/holageOne.jpeg",
+      image: "/images/busTwo.jpeg",
     },
     {
       title: "Automated Customer Experience",
       text: "From booking to delivery updates, we streamline communication and scheduling to give you a seamless, transparent, and stress-free moving experience.",
-      image: "/images/holageTwo.jpeg",
+      image: "/images/automated.jpg",
     },
   ];
 

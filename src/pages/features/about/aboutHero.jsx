@@ -7,7 +7,7 @@ export default function AboutHero() {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/loading.jpeg')" }}
+        style={{ backgroundImage: "url('/images/bus.jpeg')" }}
       />
 
       {/* Dark Overlay (VERY IMPORTANT for readability) */}
@@ -35,10 +35,10 @@ export default function AboutHero() {
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
         >
           About{" "}
-          <span className="inline-flex items-center gap-1">
-            <span className="text-white">S</span>
+          <span className="inline-flex items-center">
+            <span className="text-blue-500">S</span>
             <span className="text-red-700">B</span>
-            <span className="text-white">N</span>
+            <span className="text-blue-500">N</span>
           </span>{" "}
           Movers
         </motion.h1>

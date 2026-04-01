@@ -49,7 +49,8 @@ export default function Loader() {
             }
             className="text-primary"
           >
-            <Truck size={64} strokeWidth={2.5} className="text-red-700" />
+            <Truck size={64} strokeWidth={2.5} className="text-bg-primary" />
+
           </motion.div>
 
           {/* Optional subtle background motion */}

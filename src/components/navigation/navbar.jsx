@@ -55,12 +55,12 @@ export default function Navbar() {
                   {isActive && (
                     <motion.span
                       layoutId="nav-pill"
-                      className="absolute inset-0 bg-white rounded-full shadow-sm"
-                      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                      className="absolute inset-0 bg-primary rounded-full shadow-sm"
+                      transition={{ type: "spring", stiffness: 500, damping: 25 }}
                     />
                   )}
 
-                  <span className={`relative z-10 ${isActive ? "text-primary" : "text-gray-600"}`}>
+                  <span className={`relative z-10 ${isActive ? "text-white" : "text-gray-600"}`}>
                     {link.label}
                   </span>
                 </>
