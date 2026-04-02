@@ -132,11 +132,11 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/70" />
 
       {/* ===== Gradient Blend (Brand Feel) ===== */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/40" />
+      <div className="absolute inset-0 bg-linear-to-r from-black via-black/70 to-black/40" />
 
       {/* ===== Motion Streaks ===== */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute w-[200%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-slide" />
+        <div className="absolute w-[200%] h-full bg-linear-to-r from-transparent via-white/40 to-transparent animate-slide" />
       </div>
 
       {/* ===== Glow Layer ===== */}
@@ -152,9 +152,8 @@ export default function Hero() {
           transition={{ duration: 1.2 }}
           className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6"
         >
-          <span className="text-red-500">Move</span> Smarter.
+          <span className="text-red-500">Better logistics solutions for you </span>
           <br />
-          <span className="text-white/80">Move Faster.</span>
         </motion.h1>
 
         {/* Subtext */}
