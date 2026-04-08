@@ -11,7 +11,7 @@ export default function Loader() {
       setExit(true);
 
       // Wait for animation before removing loader
-      setTimeout(() => setLoading(false), 900);
+      setTimeout(() => setLoading(false), 1000);
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -26,8 +26,8 @@ export default function Loader() {
         initial={{ opacity: 1 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.4 }}
-        className="fixed inset-0 bg-white z-[999] flex items-center justify-center overflow-hidden"
+        transition={{ duration: 1 }}
+        className="fixed inset-0 bg-white z-999 flex items-center justify-center overflow-hidden"
       >
         {/* Truck */}
         <motion.div
@@ -57,7 +57,7 @@ export default function Loader() {
           }
           className="text-primary"
         >
-          <Truck size={70} strokeWidth={2.5} />
+          <Truck size={70} className="text-red-800" strokeWidth={2.5} />
         </motion.div>
       </motion.div>
     </AnimatePresence>
