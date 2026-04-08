@@ -1,12 +1,30 @@
 import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
+import { useState } from "react";
 
 export default function ContactForm() {
   const { register, handleSubmit, reset } = useForm();
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit = (data) => {
-    console.log("Form Data:", data);
-    alert("Request submitted successfully!");
-    reset();
+  const onSubmit = async (data) => {
+    setLoading(true);
+
+    try {
+      await emailjs.send(
+        "service_gj1ar8s",     
+        "template_yud8qgg",    
+        data,
+        "zZ0DD7NvjzVzP0ubs"   
+      );
+
+      alert("Request submitted successfully!");
+      reset();
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong. Please try again.");
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -69,7 +87,9 @@ export default function ContactForm() {
         className="w-full bg-white/10 border border-white/20 text-white placeholder-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/40"
       />
 
+      {/* Button */}
       <button
+        disabled={loading}
         className="
           w-full 
           bg-white text-secondary 
@@ -78,9 +98,10 @@ export default function ContactForm() {
           transition-all duration-300
           hover:scale-105 hover:shadow-xl
           active:scale-95
+          disabled:opacity-50 disabled:cursor-not-allowed
         "
       >
-        Submit Request →
+        {loading ? "Sending..." : "Submit Request →"}
       </button>
     </form>
   );
