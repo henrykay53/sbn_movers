@@ -7,13 +7,12 @@ export default function Loader() {
   const [exit, setExit] = useState(false);
 
   useEffect(() => {
-    // Simulate server delay
     const timer = setTimeout(() => {
       setExit(true);
 
-      // Allow exit animation to finish
-      setTimeout(() => setLoading(false), 800);
-    }, 4000); // adjust duration
+      // Wait for animation before removing loader
+      setTimeout(() => setLoading(false), 900);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -22,54 +21,45 @@ export default function Loader() {
 
   return (
     <AnimatePresence>
-      {!exit && (
+      <motion.div
+        key="loader"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.4 }}
+        className="fixed inset-0 bg-white z-[999] flex items-center justify-center overflow-hidden"
+      >
+        {/* Truck */}
         <motion.div
-          key="loader"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-white z-999 flex items-center justify-center overflow-hidden"
+          initial={{ x: 0, scale: 1 }}
+          animate={
+            exit
+              ? {
+                  x: "120vw", // 👉 move RIGHT
+                  rotate: [0, -3, 0], // tilt
+                }
+              : {
+                  scale: [0.95, 1.05, 0.95], // idle
+                  y: [0, -4, 0], // bounce
+                }
+          }
+          transition={
+            exit
+              ? {
+                  duration: 0.9,
+                  ease: "easeIn",
+                }
+              : {
+                  repeat: Infinity,
+                  duration: 1,
+                  ease: "easeInOut",
+                }
+          }
+          className="text-primary"
         >
-          {/* Truck */}
-          <motion.div
-            initial={{ scale: 0.9 }}
-            animate={
-              exit
-                ? { x: "-120vw", scale: 1 } // zoom off left
-                : { scale: [0.9, 1.1, 0.9] } // pulsating
-            }
-            transition={
-              exit
-                ? { duration: 0.8, ease: "easeInOut" }
-                : {
-                    repeat: Infinity,
-                    duration: 1.2,
-                    ease: "easeInOut",
-                  }
-            }
-            className="text-primary"
-          >
-            <Truck size={64} strokeWidth={2.5} className="text-bg-primary" />
-
-          </motion.div>
-
-          {/* Optional subtle background motion */}
-          {!exit && (
-            <motion.div
-              className="absolute inset-0 opacity-10 pointer-events-none"
-              initial={{ x: "-100%" }}
-              animate={{ x: "100%" }}
-              transition={{
-                repeat: Infinity,
-                duration: 2,
-                ease: "linear",
-              }}
-            >
-              <div className="w-[200%] h-full bg-linear-to-r from-transparent via-black/20 to-transparent" />
-            </motion.div>
-          )}
+          <Truck size={70} strokeWidth={2.5} />
         </motion.div>
-      )}
+      </motion.div>
     </AnimatePresence>
   );
 }

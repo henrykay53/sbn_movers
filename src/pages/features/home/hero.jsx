@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden py-28 text-white">
@@ -27,7 +28,17 @@ export default function Hero() {
       {/* ===== Content ===== */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+        
+
+
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
+        >
+          
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
           <span className="text-white">
             Better logistics solutions for you
           </span>
@@ -37,6 +48,9 @@ export default function Hero() {
           Experience seamless relocation powered by smart logistics, reliable
           execution, and a customer-first approach.
         </p>
+        </motion.h1>
+
+        
 
         {/* CTA remains same */}
 
