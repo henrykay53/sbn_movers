@@ -40,9 +40,9 @@ export default function Clients() {
               key={index}
               className="
                 snap-center
-                flex-shrink-0
-                w-[120px]
-                h-[70px]
+                shrink-0
+                w-30
+                h-17.5
                 flex items-center justify-center
                 bg-white/10 backdrop-blur-md
                 border border-white/10
@@ -53,7 +53,7 @@ export default function Clients() {
               <img
                 src={client.path}
                 alt={client.name}
-                className="max-h-full object-contain grayscale"
+                className="max-h-full object-contain"
               />
             </div>
           ))}
@@ -64,8 +64,8 @@ export default function Clients() {
         <div className="relative hidden md:block overflow-hidden">
 
           {/* Fade edges */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-secondary to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-secondary to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-linear-to-r from-secondary to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-linear-to-l from-secondary to-transparent z-10" />
 
           <motion.div
             className="flex gap-12 items-center"
@@ -80,9 +80,9 @@ export default function Clients() {
               <div
                 key={index}
                 className="
-                  flex-shrink-0
-                  w-[140px]
-                  h-[80px]
+                  shrink-0
+                  w-35
+                  h-20
                   flex items-center justify-center
                   bg-white/10 backdrop-blur-lg
                   border border-white/10
@@ -98,9 +98,9 @@ export default function Clients() {
                   className="
                     max-h-full 
                     object-contain 
-                    grayscale 
+        
                     opacity-80
-                    hover:grayscale-0 hover:opacity-100
+                    hover:opacity-100
                     transition duration-300
                   "
                 />

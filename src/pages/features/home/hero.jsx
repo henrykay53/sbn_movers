@@ -15,11 +15,11 @@ export default function Hero() {
       />
 
       {/* ===== Subtle Gradient (LESS DARK) ===== */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/50" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/60 to-black/50" />
 
       {/* ===== Motion Streaks ===== */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute w-[200%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-slide" />
+        <div className="absolute w-[200%] h-full bg-linear-to-r from-transparent via-white/40 to-transparent animate-slide" />
       </div>
 
       {/* ===== Glow ===== */}
