@@ -35,7 +35,7 @@ export default function AboutHero() {
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
         >
           About
-          <span className="inline-flex items-center">
+          <span className="inline-flex items-center mx-2">
             <span className="text-blue-500">S</span>
             <span className="text-red-700">B</span>
             <span className="text-blue-500">N</span>
@@ -43,22 +43,12 @@ export default function AboutHero() {
           Movers
         </motion.h1>
 
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-lg text-gray-100 mb-6"
-        >
-          Moving you forward with speed, precision, and trust.
-        </motion.p>
-
         {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="text-gray-100 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed"
+          className="text-gray-100 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed"
         >
           SBN Movers is a premier logistics company delivering seamless, secure,
           and cost-effective transportation, warehousing, and supply chain

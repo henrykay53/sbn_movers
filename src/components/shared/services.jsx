@@ -31,7 +31,7 @@ const services = [
     title: "Logistics & Transportation",
     description:
       "Efficient and timely movement of goods with a focus on safety and reliability.",
-    image: "/images/holageTwo.jpeg",
+    image: "/images/truck.jpeg",
     alt: "a logistics truck transporting goods",
   },
   

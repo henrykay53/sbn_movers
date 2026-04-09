@@ -1,3 +1,6 @@
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { BrowserRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
 import AppRoutes from "./routes";
@@ -12,9 +15,19 @@ export default function App() {
   }, []);
 
   return (
+    <>
+
     <BrowserRouter>
       {loading && <Loader />}
       <AppRoutes />
     </BrowserRouter>
+
+    <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        theme="dark"
+      />
+    </>
   );
 }
+
