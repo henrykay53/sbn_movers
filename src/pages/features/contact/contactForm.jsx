@@ -182,7 +182,7 @@ export default function ContactForm() {
       />
 
       <input
-        {...register("email")}
+        {...register("email", {required: true})}
         placeholder="Email Address"
         className="w-full bg-white/10 border border-white/20 text-white placeholder-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/40"
       />
