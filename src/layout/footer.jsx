@@ -1,144 +1,149 @@
-
-
-
-
 import { Link } from "react-router-dom";
-import {
-  Phone,
-  MapPin,
-  MessageCircle,
-  CircleArrowUp,
-} from "lucide-react";
-
+import { Phone, MapPin, MessageCircle, ArrowUp, Mail } from "lucide-react";
 import { FaInstagram, FaFacebookF } from "react-icons/fa";
+
+const socials = [
+  {
+    name: "Instagram",
+    href: "https://instagram.com/sbn_movers",
+    Icon: FaInstagram,
+    size: 17,
+  },
+  {
+    name: "Facebook",
+    href: "https://facebook.com/sbn_movers",
+    Icon: FaFacebookF,
+    size: 15,
+  },
+];
+
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white relative overflow-hidden">
+    <footer className="relative overflow-hidden bg-ink text-white">
 
-      {/* Subtle Top Glow */}
-      <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-white/10 to-transparent pointer-events-none" />
+      {/* Depth, consistent with the other dark sections */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(110%_70%_at_50%_-20%,rgba(255,255,255,0.08),transparent_60%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-40 -bottom-40 h-96 w-96 rounded-full bg-primary/20 blur-[130px]"
+      />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <div className="relative z-10">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 sm:grid-cols-2 md:grid-cols-[1.4fr_1fr_1.2fr]">
 
-        {/* Brand */}
-        <div>
-          <img src="/images/logo.png" alt="SBN Movers logo" className="w-12 mb-4" />
+          {/* Brand */}
+          <div>
+            <img
+              src="/images/logo.png"
+              alt="SBN Movers"
+              width="48"
+              height="36"
+              className="w-11"
+            />
 
-          <p className="text-sm text-gray-300 mb-6 leading-relaxed">
-            Reliable logistics and relocation services across Nigeria.
-            We move your world safely, efficiently, and stress-free.
-          </p>
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/55">
+              Reliable logistics and relocation services across Nigeria. We move
+              your world safely, efficiently, and stress-free.
+            </p>
 
-          {/* Socials */}
-          <div className="flex gap-4">
-            
-            {/* Instagram */}
-            <a
-              href="https://instagram.com/sbn_movers"
-              target="_blank"
-              rel="noreferrer"
-              className="group p-2 rounded-full bg-white/10 hover:bg-pink-500 transition-all duration-300"
-            >
-              <FaInstagram
-                size={18}
-                className="text-white group-hover:scale-110 transition"
-              />
-            </a>
-
-            {/* Facebook */}
-            <a
-              href="https://facebook.com/sbn_movers"
-              target="_blank"
-              rel="noreferrer"
-              className="group p-2 rounded-full bg-white/10 hover:bg-blue-600 transition-all duration-300"
-            >
-              <FaFacebookF
-                size={18}
-                className="text-white group-hover:scale-110 transition"
-              />
-            </a>
-
-          </div>
-        </div>
-
-        {/* Navigation */}
-        <div>
-          <h3 className="font-semibold mb-5 text-white">Quick Links</h3>
-
-          <div className="flex flex-col gap-3 text-gray-300 text-sm">
-            {[
-              { name: "Home", path: "/" },
-              { name: "About", path: "/about" },
-              { name: "Contact", path: "/contact" },
-            ].map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className="flex items-center justify-between group hover:text-white transition"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* Contact Info */}
-        <div>
-          <h3 className="font-semibold mb-5 text-white">Contact</h3>
-
-          <div className="text-sm text-gray-300 space-y-5">
-
-            <div className="flex items-start gap-3">
-              <Phone size={18} className="mt-1 text-white" />
-              <a href="tel:08169216565" className="hover:text-white transition">
-                08169216565
-              </a>
+            <div className="mt-7 flex gap-3">
+              {socials.map(({ name, href, Icon, size }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`SBN Movers on ${name}`}
+                  className="inline-flex size-10 items-center justify-center rounded-full border border-white/12 text-white/70 transition-all duration-500 ease-premium hover:border-white/30 hover:bg-white/5 hover:text-white"
+                >
+                  <Icon size={size} />
+                </a>
+              ))}
             </div>
+          </div>
 
-            <div className="flex items-start gap-3">
-              <MessageCircle size={18} className="mt-1 text-white" />
+          {/* Navigation */}
+          <div>
+            <h3 className="eyebrow text-white/40">Navigate</h3>
+
+            <div className="mt-6 flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="w-fit text-sm text-white/60 transition-colors duration-300 hover:text-white"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="eyebrow text-white/40">Contact</h3>
+
+            <div className="mt-6 flex flex-col gap-4 text-sm">
+              <a
+                href="tel:+2348169216565"
+                className="flex items-center gap-3 text-white/60 transition-colors duration-300 hover:text-white"
+              >
+                <Phone size={15} strokeWidth={1.75} className="shrink-0" />
+                0816 921 6565
+              </a>
+
               <a
                 href="https://wa.me/2348169216565?text=Hello%20I%20need%20a%20moving%20service"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-white transition"
+                className="flex items-center gap-3 text-white/60 transition-colors duration-300 hover:text-white"
               >
+                <MessageCircle size={15} strokeWidth={1.75} className="shrink-0" />
                 Chat on WhatsApp
               </a>
-            </div>
 
-            <div className="flex items-start gap-3">
-              <MapPin size={18} className="mt-1 text-white" />
-              <p className="leading-relaxed">
-                km 20 Lekki-Epe Expressway,
-                <br />
-                beside Oral Estate, Lekki, Lagos
+              <a
+                href="mailto:segzbrannigltd@gmail.com"
+                className="flex items-center gap-3 break-all text-white/60 transition-colors duration-300 hover:text-white"
+              >
+                <Mail size={15} strokeWidth={1.75} className="shrink-0" />
+                segzbrannigltd@gmail.com
+              </a>
+
+              <p className="flex items-start gap-3 leading-relaxed text-white/60">
+                <MapPin size={15} strokeWidth={1.75} className="mt-0.5 shrink-0" />
+                Km 20 Lekki-Epe Expressway, beside Oral Estate, Lekki, Lagos
               </p>
             </div>
-
           </div>
         </div>
-      </div>
 
-      {/* Divider */}
-      <div className="border-t border-white/10" />
+        <div className="border-t border-white/8">
+          <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-7 text-xs text-white/40 sm:flex-row">
+            <p>© {new Date().getFullYear()} SBN Movers. All rights reserved.</p>
 
-      {/* Bottom Bar */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between text-sm text-gray-300 gap-4">
-
-        <p>
-          © {new Date().getFullYear()} SBN Movers. All rights reserved.
-        </p>
-
-        {/* Back to top */}
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex items-center gap-2 hover:text-white transition"
-        >
-          Back To Top <CircleArrowUp />
-        </button>
-
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="group inline-flex items-center gap-2 transition-colors duration-300 hover:text-white"
+            >
+              Back to top
+              <ArrowUp
+                size={14}
+                className="transition-transform duration-500 ease-premium group-hover:-translate-y-0.5"
+              />
+            </button>
+          </div>
+        </div>
       </div>
     </footer>
   );

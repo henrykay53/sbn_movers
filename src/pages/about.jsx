@@ -7,14 +7,13 @@ import CTA from "./features/home/cts";
 
 export default function About() {
   return (
-    <div className="">
+    <>
       <AboutHero />
-       <CoreValues />
+      <CoreValues />
       <ServicesList />
-     
       <Innovations />
       <WhyChooseUs />
       <CTA />
-    </div>
+    </>
   );
 }

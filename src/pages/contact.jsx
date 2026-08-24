@@ -1,42 +1,45 @@
+import { motion } from "framer-motion";
 import ContactForm from "./features/contact/contactForm";
 import ContactInfo from "./features/contact/contactInfo";
 import Map from "./features/contact/map";
 
+const ease = [0.22, 1, 0.36, 1];
+
 export default function Contact() {
   return (
-    <section className="relative overflow-hidden py-20 bg-secondary text-white">
+    <>
+      <section className="bg-surface py-24 sm:py-32">
+        <div className="mx-auto max-w-6xl px-6">
 
-      {/* Background Layers (same system as Map) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-secondary" />
+          {/* Page heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease }}
+            className="mx-auto mb-16 max-w-2xl text-center"
+          >
+            <span className="eyebrow text-primary">Contact</span>
 
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute w-[200%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-slide" />
-      </div>
+            <h1 className="mt-4 text-4xl font-semibold leading-[1.08] text-ink sm:text-5xl">
+              Let&rsquo;s plan your move
+            </h1>
 
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),transparent_70%)]" />
+            <p className="mt-5 text-base leading-relaxed text-ink/60 sm:text-lg">
+              Share a few details and we&rsquo;ll come back with a clear quote.
+              Prefer to talk? Call or message us directly.
+            </p>
+          </motion.div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+          {/* Form + details */}
+          <div className="grid gap-8 lg:grid-cols-[1.25fr_1fr]">
+            <ContactForm />
+            <ContactInfo />
+          </div>
 
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Contact Us
-        </h1>
-
-        <p className="text-gray-200 text-center mb-12">
-          Let’s make your move simple and stress-free
-        </p>
-
-        <div className="grid md:grid-cols-2 gap-10 items-start">
-          <ContactForm />
-          <ContactInfo />
         </div>
+      </section>
 
-      </div>
-
-      {/* Map stays outside but visually connected */}
-      <div className="mt-16">
-        <Map />
-      </div>
-    </section>
+      <Map />
+    </>
   );
 }

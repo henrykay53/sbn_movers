@@ -1,88 +1,63 @@
-import { MapPin, Phone, Navigation } from "lucide-react";
+import { MapPin, Navigation } from "lucide-react";
+import { motion } from "framer-motion";
+
+const ease = [0.22, 1, 0.36, 1];
+
+const DIRECTIONS_URL =
+  "https://www.google.com/maps?q=lekki+epe+expressway+oral+estate";
 
 export default function Map() {
   return (
-    <section className="relative overflow-hidden py-20 bg-secondary text-white">
+    <section className="bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl px-6">
 
-      {/* Background Layers */}
-      <div className="absolute inset-0 bg-linear-to-r from-secondary via-secondary/90 to-secondary" />
-
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute w-[200%] h-full bg-linear-to-r from-transparent via-white/40 to-transparent animate-slide" />
-      </div>
-
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),transparent_70%)]" />
-
-      <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:40px_40px]" />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-
-        {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3">
-            Find Us Easily
-          </h2>
-          <p className="text-gray-200 text-sm sm:text-base">
-            Visit our office or get directions instantly
-          </p>
-        </div>
-
-        {/* Layout */}
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-
-          {/* Info Card */}
-          <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg text-left space-y-6">
-
-            <div className="flex items-start gap-3">
-              <MapPin className="text-white" size={22} />
-              <p className="text-sm text-gray-200">
-                Km 20 Lekki-Epe Expressway, beside Oral Estate,
-                Lekki, Lagos
-              </p>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <Phone size={20} />
-              <a
-                href="tel:08169216565"
-                className="text-sm hover:underline"
-              >
-                08169216565
-              </a>
-            </div>
-
-            <a
-              href="https://www.google.com/maps?q=lekki+epe+expressway+oral+estate"
-              target="_blank"
-              rel="noreferrer"
-              className="
-                inline-flex items-center gap-2
-                bg-white text-secondary
-                px-5 py-2.5
-                rounded-full text-sm font-medium
-                hover:scale-105 transition
-              "
-            >
-              <Navigation size={16} />
-              Get Directions
-            </a>
-
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease }}
+          className="grid items-end gap-8 sm:grid-cols-[1fr_auto] sm:gap-12"
+        >
+          <div>
+            <span className="eyebrow text-primary">Visit us</span>
+            <h2 className="mt-4 text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl">
+              Our office in Lekki
+            </h2>
+            <p className="mt-5 flex items-start gap-2.5 text-base leading-relaxed text-ink/60">
+              <MapPin
+                size={18}
+                strokeWidth={1.75}
+                className="mt-0.5 shrink-0 text-primary"
+              />
+              Km 20 Lekki-Epe Expressway, beside Oral Estate, Lekki, Lagos
+            </p>
           </div>
 
-          {/* Map */}
-          <div className="rounded-xl overflow-hidden shadow-xl h-[300px] sm:h-[400px]">
+          <a
+            href={DIRECTIONS_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex shrink-0 items-center justify-center gap-2.5 rounded-full border border-ink/12 px-7 py-3.5 text-sm font-semibold text-ink transition-all duration-500 ease-premium hover:border-ink/25 hover:bg-surface"
+          >
+            <Navigation size={16} strokeWidth={1.9} />
+            Get directions
+          </a>
+        </motion.div>
 
-            <iframe
-              title="SBN Movers Location"
-              src="https://www.google.com/maps?q=lekki+epe+expressway+oral+estate&output=embed"
-              className="w-full h-full border-0"
-              loading="lazy"
-            />
-
-          </div>
-
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, delay: 0.1, ease }}
+          className="mt-12 overflow-hidden rounded-2xl border border-ink/8 shadow-soft"
+        >
+          <iframe
+            title="SBN Movers office location on Google Maps"
+            src="https://www.google.com/maps?q=lekki+epe+expressway+oral+estate&output=embed"
+            className="h-[340px] w-full border-0 sm:h-[440px]"
+            loading="lazy"
+          />
+        </motion.div>
 
       </div>
     </section>

@@ -1,65 +1,40 @@
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Truck } from "lucide-react";
+import { motion } from "framer-motion";
 
+const ease = [0.22, 1, 0.36, 1];
+
+/**
+ * Purely presentational. Visibility and timing are owned by <App /> so the
+ * exit animation actually runs — previously the parent unmounted this while
+ * its own internal timer was still counting, so the exit was never seen.
+ */
 export default function Loader() {
-  const [loading, setLoading] = useState(true);
-  const [exit, setExit] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setExit(true);
-
-      // Wait for animation before removing loader
-      setTimeout(() => setLoading(false), 1000);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (!loading) return null;
-
   return (
-    <AnimatePresence>
-      <motion.div
-        key="loader"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-        className="fixed inset-0 bg-white z-999 flex items-center justify-center overflow-hidden"
-      >
-        {/* Truck */}
+    <motion.div
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease }}
+      className="fixed inset-0 z-[999] flex flex-col items-center justify-center bg-surface"
+    >
+      <motion.img
+        src="/images/logo.png"
+        alt=""
+        width="56"
+        height="42"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease }}
+        className="w-12"
+      />
+
+      {/* Thin determinate rule — quieter than a spinner */}
+      <div className="mt-7 h-px w-28 overflow-hidden bg-ink/10">
         <motion.div
-          initial={{ x: 0, scale: 1 }}
-          animate={
-            exit
-              ? {
-                  x: "120vw", // 👉 move RIGHT
-                  rotate: [0, -3, 0], // tilt
-                }
-              : {
-                  scale: [0.95, 1.05, 0.95], // idle
-                  y: [0, -4, 0], // bounce
-                }
-          }
-          transition={
-            exit
-              ? {
-                  duration: 0.9,
-                  ease: "easeIn",
-                }
-              : {
-                  repeat: Infinity,
-                  duration: 1,
-                  ease: "easeInOut",
-                }
-          }
-          className="text-primary"
-        >
-          <Truck size={70} className="text-red-800" strokeWidth={2.5} />
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
+          initial={{ x: "-100%" }}
+          animate={{ x: "0%" }}
+          transition={{ duration: 0.9, ease }}
+          className="h-full w-full bg-primary"
+        />
+      </div>
+    </motion.div>
   );
 }

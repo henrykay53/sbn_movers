@@ -1,37 +1,150 @@
 @import "tailwindcss";
 
+/* ============================================================
+   DESIGN TOKENS
+   Everything visual is driven from here — retune the brand by
+   editing these values, not the components.
+   ============================================================ */
+@theme {
+  /* --- Brand --- */
+  --color-primary: #800000;      /* maroon — accent only, used sparingly */
+  --color-primary-deep: #5c0000;
+  --color-secondary: #1e3a8a;    /* brand blue */
 
-/* === BRAND COLORS === */
-:root {
-  --color-primary: #800000;   /* maroon */
-  --color-secondary: #1e3a8a; /* deep blue */
+  /* --- Surfaces --- */
+  --color-ink: #0b1226;          /* deep navy, for dark sections */
+  --color-ink-soft: #14203f;
+  --color-surface: #faf8f6;      /* warm off-white — reads richer than cool grey */
+  --color-surface-alt: #f3efeb;
+
+  /* --- Typography --- */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+
+  /* --- Motion: slow, settled easing rather than bouncy springs --- */
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* --- Elevation: layered and soft, never a single hard drop --- */
+  --shadow-soft: 0 1px 2px rgba(11, 18, 38, 0.04),
+    0 10px 28px -10px rgba(11, 18, 38, 0.12);
+  --shadow-lift: 0 2px 6px rgba(11, 18, 38, 0.06),
+    0 24px 48px -16px rgba(11, 18, 38, 0.18);
 }
 
-/* === CUSTOM UTILITIES === */
-.bg-secondary {
-  background-color: var(--color-secondary);
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+  }
+
+  /* Optical tightening — large type needs negative tracking to look composed */
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    letter-spacing: -0.035em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+
+  /* currentColor keeps the ring visible on both light and dark sections */
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
 }
 
-.bg-primary {
-  background-color: var(--color-primary);
+/* ============================================================
+   COMPONENT PRIMITIVES
+   ============================================================ */
+@layer components {
+  /* Small tracked-out label that sits above a section heading */
+  .eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* Lets white copy sit over photography with a lighter scrim than would
+     otherwise be needed, so the image stays visible. */
+  .on-photo {
+    text-shadow:
+      0 1px 2px rgba(11, 18, 38, 0.45),
+      0 4px 18px rgba(11, 18, 38, 0.4);
+  }
+
+  /* Hairline rule that fades at both ends */
+  .rule-fade {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      currentColor,
+      transparent
+    );
+    opacity: 0.15;
+  }
 }
 
-.text-secondary {
-  color: var(--color-secondary);
-}
+/* ============================================================
+   MOTION
+   ============================================================ */
 
-
-
-/* === ANIMATION === */
-@keyframes slide {
+/* Soft attention pulse behind the WhatsApp button. Two rings offset by half
+   the cycle so there is always one mid-expansion — reads as a slow breath
+   rather than the hard strobe of Tailwind's animate-ping. */
+@keyframes whatsapp-pulse {
   0% {
-    transform: translateX(-60%);
+    transform: scale(0.96);
+    opacity: 0.5;
+  }
+  70% {
+    transform: scale(2);
+    opacity: 0;
   }
   100% {
-    transform: translateX(0%);
+    transform: scale(2);
+    opacity: 0;
   }
 }
 
-.animate-slide {
-  animation: slide 10s linear infinite;
+.pulse-ring {
+  animation: whatsapp-pulse 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.pulse-ring--offset {
+  animation-delay: 1.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

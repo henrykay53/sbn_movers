@@ -1,53 +1,52 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import DarkSection from "../../../components/shared/darkSection";
+
+const ease = [0.22, 1, 0.36, 1];
 
 export default function CTA() {
   return (
-    <section className="relative overflow-hidden py-30 text-center bg-secondary text-white">
+    <DarkSection className="py-28 sm:py-36">
+      <motion.div
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.8, ease }}
+        className="mx-auto max-w-3xl px-6 text-center"
+      >
+        <span className="eyebrow text-white/45">Ready when you are</span>
 
-      {/* Base Gradient Layer */}
-      <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-secondary" />
-
-      {/* Moving Light Streaks */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute w-[200%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-slide" />
-      </div>
-
-      {/* Radial Glow (Depth Effect) */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),transparent_70%)]" />
-
-      {/* Subtle Grid Texture (Optional Premium Feel) */}
-      <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:40px_40px]" />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
-
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
-          Ready to Move Without Stress?
+        <h2 className="mt-5 text-3xl font-semibold leading-[1.1] sm:text-4xl md:text-5xl">
+          Let&rsquo;s move you without the stress
         </h2>
 
-        <p className="text-gray-200 mb-10 text-sm sm:text-base max-w-xl mx-auto">
-          Experience fast, reliable, and secure relocation services tailored to your needs.
+        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/60 sm:text-lg">
+          Tell us where you&rsquo;re going and we&rsquo;ll come back with a
+          clear, itemised quote — no surprises on moving day.
         </p>
 
-        <Link
-          to="/contact"
-          className="
-            inline-flex items-center gap-1
-            bg-white text-secondary 
-            px-8 py-3 
-            rounded-full 
-            font-semibold
-            shadow-lg
-            transition-all duration-300
-            hover:scale-105 hover:shadow-2xl
-            active:scale-95
-          "
-        >
-          Contact Us Now <ArrowRight size={18} className="mt-1" />
-        </Link>
+        <div className="mt-11 flex flex-col justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <Link
+            to="/contact"
+            className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4 text-sm font-semibold text-ink shadow-soft transition-all duration-500 ease-premium hover:shadow-lift"
+          >
+            Request a quote
+            <ArrowRight
+              size={17}
+              className="transition-transform duration-500 ease-premium group-hover:translate-x-1"
+            />
+          </Link>
 
-      </div>
-    </section>
+          <a
+            href="tel:+2348169216565"
+            className="inline-flex items-center justify-center gap-2.5 rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white/90 transition-all duration-500 ease-premium hover:border-white/40 hover:bg-white/5 hover:text-white"
+          >
+            <Phone size={16} />
+            0816 921 6565
+          </a>
+        </div>
+      </motion.div>
+    </DarkSection>
   );
 }

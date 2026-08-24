@@ -1,52 +1,50 @@
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+
+const WHATSAPP_URL =
+  "https://wa.me/2348169216565?text=Hello%20I%20need%20a%20moving%20service";
 
 export default function WhatsAppButton() {
   return (
-    <div className="fixed bottom-6 right-6 z-50 group">
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 1.2, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className="group fixed bottom-6 right-6 z-50"
+    >
+      {/* Pulse rings. Anchored to the collapsed 50px footprint at the
+          bottom-right, which is exactly where the icon sits — the label
+          expands leftward, so the icon never moves out from under them.
+          Fades out on hover so it stops competing with the label. */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 right-0 size-[3.125rem] transition-opacity duration-300 group-hover:opacity-0"
+      >
+        <span className="pulse-ring absolute inset-0 rounded-full bg-[#25D366]" />
+        <span className="pulse-ring pulse-ring--offset absolute inset-0 rounded-full bg-[#25D366]" />
+      </span>
 
-      {/* Ping */}
-      <span className="absolute inset-0 rounded-full bg-green-400 opacity-30 animate-ping group-hover:animate-none" />
-
-      {/* Button */}
-      <motion.a
-        href="https://wa.me/2348169216565?text=Hello%20I%20need%20a%20moving%20service"
+      <a
+        href={WHATSAPP_URL}
         target="_blank"
         rel="noreferrer"
-        initial={{ scale: 0, y: 40 }}
-        animate={{ scale: 1, y: 0 }}
-        transition={{ delay: 1, type: "spring", stiffness: 120 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.92 }}
+        aria-label="Chat with SBN Movers on WhatsApp"
         className="
-          relative
-          bg-green-500 hover:bg-green-600
-          text-white
-          p-4
-          rounded-full
-          shadow-xl
-          flex items-center justify-center
+          relative flex items-center gap-0
+          rounded-full bg-[#25D366]
+          py-3.5 pl-3.5 pr-3.5
+          text-white shadow-soft
+          transition-all duration-500 ease-premium
+          hover:gap-2.5 hover:pl-5 hover:shadow-lift
         "
       >
-        <MessageCircle size={20} />
-      </motion.a>
+        {/* Label reveals on hover, expanding to the left of the icon */}
+        <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-all duration-500 ease-premium group-hover:max-w-[8rem] group-hover:opacity-100">
+          Chat with us
+        </span>
 
-      {/* Tooltip */}
-      <div
-        className="
-          pointer-events-none
-          absolute right-16 top-1/2 -translate-y-1/2
-          bg-black text-white text-xs
-          px-3 py-2 rounded-full shadow-lg whitespace-nowrap
-
-          opacity-0 translate-x-3
-          group-hover:opacity-100 group-hover:translate-x-0
-
-          transition-all duration-300 ease-out
-        "
-      >
-        Chat with us
-      </div>
-    </div>
+        <FaWhatsapp size={22} className="shrink-0" />
+      </a>
+    </motion.div>
   );
 }
