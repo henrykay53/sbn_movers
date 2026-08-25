@@ -1,20 +1,14 @@
 import { Link } from "react-router-dom";
 import { Phone, MapPin, MessageCircle, ArrowUp, Mail } from "lucide-react";
-import { FaInstagram, FaFacebookF } from "react-icons/fa";
+import { FaInstagram} from "react-icons/fa";
 
 const socials = [
   {
     name: "Instagram",
-    href: "https://instagram.com/sbn_movers",
+    href: "https://instagram.com/sbnmoving.co",
     Icon: FaInstagram,
     size: 17,
-  },
-  {
-    name: "Facebook",
-    href: "https://facebook.com/sbn_movers",
-    Icon: FaFacebookF,
-    size: 15,
-  },
+  }
 ];
 
 const navLinks = [
