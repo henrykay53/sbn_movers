@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, MapPin, MessageCircle, ArrowUp, Mail } from "lucide-react";
-import { FaInstagram} from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 
 const socials = [
   {
@@ -8,7 +8,7 @@ const socials = [
     href: "https://instagram.com/sbnmoving.co",
     Icon: FaInstagram,
     size: 17,
-  }
+  },
 ];
 
 const navLinks = [
