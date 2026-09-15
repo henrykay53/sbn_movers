@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 
 const WHATSAPP_URL =
-  "https://wa.me/2348169216565?text=Hello%20I%20need%20a%20moving%20service";
+  "https://wa.me/23407070081335?text=Hello%20I%20need%20a%20moving%20service";
 
 export default function WhatsAppButton() {
   return (

@@ -17,7 +17,7 @@ const validatePhone = (value) => {
   const digits = value.replace(/[\s()-]/g, "");
   return (
     NG_PHONE.test(digits) ||
-    "Enter a valid Nigerian number, e.g. 08169216565 or +2348169216565"
+    "Enter a valid Nigerian number"
   );
 };
 
@@ -73,7 +73,7 @@ export default function ContactForm() {
     } catch (error) {
       console.error("Admin notification failed:", error);
       toast.error(
-        "We couldn't send your request. Please call or WhatsApp us on 0816 921 6565.",
+        "We couldn't send your request. Please call or WhatsApp us on 07070081335..",
       );
       setLoading(false);
       return;
@@ -133,7 +133,7 @@ export default function ContactForm() {
                 required: "Please enter your phone number",
                 validate: validatePhone,
               })}
-              placeholder="08169216565"
+              placeholder="xxx"
               aria-invalid={errors.phone ? "true" : "false"}
               className={inputClass(errors.phone)}
             />
@@ -207,10 +207,10 @@ export default function ContactForm() {
       <p className="mt-4 text-center text-xs text-ink/40">
         Prefer to talk? Call{" "}
         <a
-          href="tel:+2348169216565"
+          href="tel:+23407070081335"
           className="font-medium text-ink/60 underline decoration-ink/20 underline-offset-2 transition-colors hover:text-primary"
         >
-          0816 921 6565
+          07070081335
         </a>
       </p>
     </form>

@@ -88,15 +88,15 @@ export default function Footer() {
 
             <div className="mt-6 flex flex-col gap-4 text-sm">
               <a
-                href="tel:+2348169216565"
+                href="tel:+23407070081335"
                 className="flex items-center gap-3 text-white/60 transition-colors duration-300 hover:text-white"
               >
                 <Phone size={15} strokeWidth={1.75} className="shrink-0" />
-                0816 921 6565
+                0707 008 1335
               </a>
 
               <a
-                href="https://wa.me/2348169216565?text=Hello%20I%20need%20a%20moving%20service"
+                href="https://wa.me/23407070081335?text=Hello%20I%20need%20a%20moving%20service"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 text-white/60 transition-colors duration-300 hover:text-white"

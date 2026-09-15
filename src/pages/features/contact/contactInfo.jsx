@@ -4,14 +4,14 @@ const channels = [
   {
     icon: Phone,
     label: "Phone",
-    value: "0816 921 6565",
-    href: "tel:+2348169216565",
+    value: "0707 008 1335",
+    href: "tel:+2340707 008 1335",
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
     value: "Chat with us instantly",
-    href: "https://wa.me/2348169216565?text=Hello%20I%20need%20a%20moving%20service",
+    href: "https://wa.me/23407070081335?text=Hello%20I%20need%20a%20moving%20service",
     external: true,
   },
   {

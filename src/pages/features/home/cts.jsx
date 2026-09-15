@@ -39,11 +39,11 @@ export default function CTA() {
           </Link>
 
           <a
-            href="tel:+2348169216565"
+            href="tel:+2340707 008 1335"
             className="inline-flex items-center justify-center gap-2.5 rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white/90 transition-all duration-500 ease-premium hover:border-white/40 hover:bg-white/5 hover:text-white"
           >
             <Phone size={16} />
-            0816 921 6565
+            0707 008 1335
           </a>
         </div>
       </motion.div>
